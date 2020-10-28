@@ -17,7 +17,7 @@ d=__import__('git')
 try:
   d.Git("./stuff/").clone("git://github.com/vxunderground/MalwareSourceCode.git")
 except:
-  continue
+  pass
 """
 Before I run this, I just wanna say sorry for the repl.it people if they have alerts going off because of this. 
 
