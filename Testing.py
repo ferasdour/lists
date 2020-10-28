@@ -14,8 +14,10 @@ b=__import__('json')
 c=__import__('pip')
 c.main(['install','gitpython'])
 d=__import__('git')
-d.Git("./stuff/").clone("git://github.com/vxunderground/MalwareSourceCode.git")
-
+try:
+  d.Git("./stuff/").clone("git://github.com/vxunderground/MalwareSourceCode.git")
+except:
+  continue
 """
 Before I run this, I just wanna say sorry for the repl.it people if they have alerts going off because of this. 
 
