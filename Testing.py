@@ -20,16 +20,20 @@ try:
 except:
   pass
 
+"lets save some space by commenting this out."
+"""
 try:
   d.Git("./stuff/").clone("git://github.com/vxunderground/MalwareSourceCode.git")
 except:
   pass
 """
+"""
 Before I run this, I just wanna say sorry for the repl.it people if they have alerts going off because of this. 
 
 Okay well, it wouldn't let me commit with the cloned repo in it. That's okay. Still funny that it downloaded all that. 
 """
-open('TequilaQuilaPoisonInTheDarkness.7z','wb').write(a.get("https://vxug.fakedoma.in/samples/Exotic/TurlaGroup/TurlaGroupImplantsKazuar.7z".read()))
+open('TequilaQuilaPoisonInTheDarkness.7z','wb').write(a.get("https://vxug.fakedoma.in/samples/Exotic/TurlaGroup/TurlaGroupImplantsKazuar.7z").content)
+
 c.main(['install','py7zr[zstd]'])
 e=__import__('py7zr')
 e.SevenZipFile('TequilaQuilaPoisonInTheDarkness.7z', mode='r').extractall(path="./stuff/")
