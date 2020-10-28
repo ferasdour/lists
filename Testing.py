@@ -14,26 +14,36 @@ a=__import__('requests')
 b=__import__('json')
 c=__import__('pip')
 c.main(['install','gitpython'])
+c.main(['install','py7zr[zstd]'])
+c.main(['install','angr'])
+c.main(['install','ancypatch'])
 d=__import__('git')
+e=__import__('py7zr')
+f=__import__('angr')
 try:
   os.mkdir('stuff')
 except:
   pass
 
-"lets save some space by commenting this out."
-"""
-try:
-  d.Git("./stuff/").clone("git://github.com/vxunderground/MalwareSourceCode.git")
-except:
-  pass
-"""
-"""
+def gitEvil():
+ try:
+   d.Git("./stuff/").clone("git://github.com/vxunderground/MalwareSourceCode.git")
+ except:
+   pass
+
+def GetPoison():
+ """
 Before I run this, I just wanna say sorry for the repl.it people if they have alerts going off because of this. 
 
 Okay well, it wouldn't let me commit with the cloned repo in it. That's okay. Still funny that it downloaded all that. 
-"""
-open('TequilaQuilaPoisonInTheDarkness.7z','wb').write(a.get("https://vxug.fakedoma.in/samples/Exotic/TurlaGroup/TurlaGroupImplantsKazuar.7z").content)
+ """
+ open('TequilaQuilaPoisonInTheDarkness.7z','wb').write(a.get("https://vxug.fakedoma.in/samples/Exotic/TurlaGroup/TurlaGroupImplantsKazuar.7z").content)
+ e.SevenZipFile('TequilaQuilaPoisonInTheDarkness.7z', mode='r').extractall(path="./stuff/")
 
-c.main(['install','py7zr[zstd]'])
-e=__import__('py7zr')
-e.SevenZipFile('TequilaQuilaPoisonInTheDarkness.7z', mode='r').extractall(path="./stuff/")
+def SimpleTests(filename):
+  blarg=angr.Project(filename)
+  arch=blarg.arch.name
+  entrypoint=blarg.entry
+  cfg = blarg.analyses.CFGFast()
+  functions=cfg.kb.functions.items()
+  
